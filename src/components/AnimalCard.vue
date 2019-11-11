@@ -1,22 +1,23 @@
 <template>
-    <div id="animal-card" class="animal-card" v-show="show">
+
+    <div id="animal-card" class="animal-card" v-show="show" align="center">
         <b-card
                 :title="animal.animal_name"
                 :img-src="img"
-                img-alt=""
-                img-top
+                img-alt="animal.animal_name"
                 tag="article"
                 img-height="230"
                 img-width="100"
                 style="max-width: 20rem;"
                 class="mb-2"
         >
-            <b-card-text>{{ animal.animal_age}} years old</b-card-text>
-            <b-card-text>Estoy aqui desde : {{ animal.animal_entry_date | moment("dddd, MMMM Do YYYY") }} </b-card-text>
+            <b-card-text>I have {{ animal.animal_age}} years old, I'am {{ animal.animal_kind}} and</b-card-text>
+            <b-card-text>I'am here since : {{ animal.animal_entry_date | moment("dddd, MMMM Do YYYY") }} :(</b-card-text>
 
-            <b-button href="#" variant="primary" v-if="user.id === 2">Editar</b-button>
+            <b-button href="#" variant="primary" v-if="user.id === 2">Edit</b-button>
+            <b-button href="#" variant="primary" v-if="user.id === 2">Delete</b-button>
 
-            <b-button href="#" variant="primary" v-if="user.id === 1">Quiero Adoptar</b-button>
+            <b-button href="#" variant="primary" v-if="user.id === 1">Adopt it</b-button>
 
         </b-card>
     </div>
@@ -60,5 +61,10 @@
 </script>
 
 <style scoped>
-
+    .animal-card{
+        align-content: center;
+        border-radius: 5px;
+        width: 30%;
+        margin-left: 30px;
+    }
 </style>

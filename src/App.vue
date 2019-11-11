@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" class="font">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/animalCreate" v-if="user.id !== 1">Nuevo Animalito</router-link> |
+      | <router-link to="/">Home</router-link> |
+      <router-link to="/animalCreate" v-if="user.id == 2">Register new animal</router-link> |
       <router-link to="/login" v-if="loginControl !== 2">Login</router-link> |
       <b-button variant="link" v-on:click="exitUser" v-if="loginControl === 2">Exit</b-button>
     </div>
@@ -49,12 +49,7 @@
           )
         }
       },
-      createAnimal(data){
-        this.$store.dispatch('createAnimal',data).then(
-                response => { console.log('Animal Creado')},
-                error => { console.log('No fue posble crear un animal')}
-        )
-      },
+
       exitUser(){
         this.$store.dispatch('initialUser').then(
                 response => { console.log('Se cargo el usuario correctamente')},
@@ -73,7 +68,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #F22233;
 }
 
 #nav {
@@ -86,6 +81,9 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #F22233;
 }
+.font{ background-color: lightseagreen; }
+
+
 </style>

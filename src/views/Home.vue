@@ -6,8 +6,8 @@
 
     <b-container class="bv-example-row">
       <b-row>
-        <b-col cols="3"><h5>Ordenar Por: </h5> <b-form-select v-model="branch_selected" :options="branch_options" v-on:change="toShowBranch"></b-form-select></b-col>
-        <b-col cols="3"><h5>Ordenar Por: </h5> <b-form-select v-model="order" :options="options" ></b-form-select></b-col>
+        <b-col cols="6"><h5>Filter by branch: </h5> <b-form-select v-model="branch_selected" :options="branch_options" v-on:change="toShowBranch"></b-form-select></b-col>
+        <b-col cols="6"><h5>Order by: </h5> <b-form-select v-model="order" :options="options" ></b-form-select></b-col>
       </b-row>
     </b-container>
     <br>
@@ -43,7 +43,7 @@ export default {
       ],
       branch_selected: 0,
       branch_options: [
-        { value: 0, text: 'seleccione una ciudad para filtrar' },
+        { value: 0, text: 'select city' },
         { value: 3, text: 'Manizales' },
         { value: 4, text: 'Bucaramanga' },
         { value: 5, text: 'Medellin' },

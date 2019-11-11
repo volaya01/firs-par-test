@@ -3,7 +3,7 @@
         <br><br>
         <b-row>
             <b-col cols="4"></b-col>
-            <b-col cols="4" offset> <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+            <b-col cols="4" > <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                     <b-form-group
                             id="input-group-1"
                             label="Email address:"
@@ -56,9 +56,9 @@
                     this.$store.dispatch('changeUser',user).then(
                         response => {
                             this.$router.push({name:'home'});
-                            console.log('Se ingreso Correctamente')
+                            console.log('Successful entry')
                         },
-                        error => { console.log('Error en las credenciales')}
+                        error => { console.log('Error in credentials')}
                     )
                 }
             },

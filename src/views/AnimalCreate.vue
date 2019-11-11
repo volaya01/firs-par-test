@@ -1,6 +1,6 @@
 <template>
     <div id="animal-create" class="animal-create">
-        <h1>Aca vamos a crear los animales</h1>
+        <h1>Create new animal</h1>
         <create-animal-form></create-animal-form>
     </div>
 
