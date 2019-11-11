@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <!--<img alt="Vue logo" src="../assets/logo.png"> -->
+    <!--<img alt="Vue logo" src="../images/logo.png"> -->
 
     <HelloWorld msg="Welcome to Your Vue.js App"/>
 
@@ -23,6 +23,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import AnimalCard from '@/components/AnimalCard.vue'
 
+
 import { EventBus } from '../event-bus'
 
 import Vue2Filters from 'vue2-filters'
@@ -43,10 +44,12 @@ export default {
       ],
       branch_selected: 0,
       branch_options: [
-        { value: 0, text: 'select city' },
+        { value: 0, text: 'Select city' },
         { value: 3, text: 'Manizales' },
-        { value: 4, text: 'Bucaramanga' },
-        { value: 5, text: 'Medellin' },
+        { value: 5, text: 'Pereira' },
+        { value: 4, text: 'Medellin' },
+        { value: 6, text: 'Armenia'},
+        { value: 7, text: 'Tapei'}
       ]
     }
   },
@@ -57,7 +60,7 @@ export default {
       animals(){
           return this.$store.getters.getAnimals;
       }
-  },
+},
   methods:{
     toShowBranch(event){
       EventBus.$emit('showBranch', { branch : event });

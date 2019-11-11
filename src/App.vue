@@ -3,6 +3,7 @@
     <div id="nav">
       | <router-link to="/">Home</router-link> |
       <router-link to="/animalCreate" v-if="user.id == 2">Register new animal</router-link> |
+      <router-link to="/branchView" v-if="user.id == 4 || user.id == 3">View branch</router-link> |
       <router-link to="/login" v-if="loginControl !== 2">Login</router-link> |
       <b-button variant="link" v-on:click="exitUser" v-if="loginControl === 2">Exit</b-button>
     </div>
@@ -15,12 +16,12 @@
     created() {
       this.initialLoadAnimals();
 
-      //this.initialLoadBranches();
+      this.initialLoadBranches();
 
       if (this.$store.getters.getUserLoadStatus !== 2){
         this.$store.dispatch('initialUser').then(
-                response => { console.log('Se cargo el usuario correctamente')},
-                error => { console.log('Se presento un error al intentar cargar el usuario')}
+                response => { console.log('User loaded successfully')},
+                error => { console.log('Error loading user')}
         )
       }
     },
@@ -28,32 +29,38 @@
       user(){
         return this.$store.getters.getUser
       },
+
       loginControl(){
         return this.$store.getters.getUserNew
+      },
+
+      branch(){
+        return this.$store.getters.getBranches
       }
     },
     methods:{
       initialLoadAnimals(){
         if (this.$store.getters.getAnimalsLoadStatus !== 2){
           this.$store.dispatch('loadAnimals').then(
-                  response => { console.log('Se cargaron los animales correctamente')},
-                  error => { console.log('Se presento un error al intentar cargar las estaciones')}
+                  response => { console.log('Animal loaded successfully')},
+                  error => { console.log('Error loading animal')}
           )
         }
       },
+
       initialLoadBranches(){
         if (this.$store.getters.getBranchesLoadStatus !== 2){
           this.$store.dispatch('loadBranches').then(
-                  response => { console.log('Se cargaron las ramas correctamente')},
-                  error => { console.log('Se presento un error al intentar cargar las ramas')}
+                  response => { console.log('Branch loaded successfully')},
+                  error => { console.log('Error loading branch')}
           )
         }
       },
 
       exitUser(){
         this.$store.dispatch('initialUser').then(
-                response => { console.log('Se cargo el usuario correctamente')},
-                error => { console.log('Se presento un error al intentar cargar el usuario')}
+                response => { console.log('Successfully exit')},
+                error => { console.log('Error exit')}
         )
       },
     }

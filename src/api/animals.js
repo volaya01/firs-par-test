@@ -12,5 +12,13 @@ export default {
 
     postAnimalsAPI: function (data) {
       return axios.post(ANIMALS_CONFIG.ANIMAL_API,data)
+    },
+
+    deleteAnimalsAPI: function (data) {
+        return axios.delete(ANIMALS_CONFIG.ANIMAL_API,data)
+    },
+
+    updateAnimalsAPI: function (data) {
+        return axios.put(ANIMALS_CONFIG.ANIMAL_API, data)
     }
 }

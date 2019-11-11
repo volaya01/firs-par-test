@@ -19,6 +19,26 @@ const routes = [
   },
 
   {
+    path: '/branchView',
+    name: 'branchView',
+    component: () => import('../views/BranchView.vue'),
+  },
+
+  {
+    path: '/updateAnimal',
+    name: 'updateAnimal',
+    //props: true,
+    component: () => import('../views/UpdateAnimal.vue'),
+  },
+
+  {
+    path: '/branchUpdate',
+    name: 'branchUpdate',
+    component: () => import('../views/UpdateBranch.vue'),
+  },
+
+
+  {
     path: '/login',
     name: 'login',
     // route level code-splitting

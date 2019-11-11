@@ -40,6 +40,44 @@ export const animals = {
                         reject(error);
                     });
             });
+        },
+
+        deleteAnimal({ commit }, data){
+
+            commit ( 'setAnimalsLooadStatus', 1 );
+
+            return new Promise((resolve, reject) => {
+                AnimalsAPI.deleteAnimalsAPI(data)
+                    .then(function (response) {
+                        commit('setAnimals', response.data);
+                        commit('setAnimalsLoadStatus', 3);
+                        reject(error);
+                    })
+                    .catch(function (error) {
+                        commit('setAnimals', []);
+                        commit('setAnimalsLoadStatus', 3);
+                        reject(error);
+                    });
+            })
+        },
+
+        updateAnimal({ commit }, data){
+
+            commit ( 'setAnimalsLooadStatus', 1 );
+
+            return new Promise((resolve, reject) => {
+                AnimalsAPI.updateAnimalsAPI(data)
+                    .then(function (response) {
+                        commit('setAnimals', response.data);
+                        commit('setAnimalsLoadStatus', 3);
+                        reject(error);
+                    })
+                    .catch(function (error) {
+                        commit('setAnimals', []);
+                        commit('setAnimalsLoadStatus', 3);
+                        reject(error);
+                    });
+            })
         }
     },
     mutations: {
