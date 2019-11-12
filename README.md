@@ -1,4 +1,5 @@
-#TITOAnimals
+# TITOAnimals
+
 This project was created with the Framework Vue.js
 ## Instructions to install the local project
 You must have installed: NodeJs, npm and Git.

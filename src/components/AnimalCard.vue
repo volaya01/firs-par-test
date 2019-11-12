@@ -14,7 +14,8 @@
             <b-card-text>I have {{ animal.animal_age}} years old, I'am {{ animal.animal_kind}} and</b-card-text>
             <b-card-text>I'am here since : {{ animal.animal_entry_date | moment("dddd, MMMM Do YYYY") }} :(</b-card-text>
 
-            <b-button href="/updateAnimal" variant="primary" v-if="user.id === 2">Update</b-button>
+            <b-button v-on:click="sendUpdate" variant="primary" v-if="user.id === 2">Update</b-button>
+
             <b-button v-model="id_animal" @submit="Onsubmit" v-b-modal.delete variant="primary" v-if="user.id === 2">Delete</b-button>
             <b-button v-model="id_status" @click="update"  v-b-modal.update variant="primary" v-if="user.id === 1">Adopt it</b-button>
 
@@ -97,6 +98,9 @@
                         console.log('Adopted animal')},
                     error => { console.log('Error in adopting animal')}
                 )
+            },
+            sendUpdate(){
+                this.$router.push({ name: '/updateAnimal', params: { idAnimal: this.animal.animal_id }})
             }
         }
     }

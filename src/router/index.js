@@ -25,9 +25,9 @@ const routes = [
   },
 
   {
-    path: '/updateAnimal',
+    path: '/updateAnimal/:idAnimal',
     name: 'updateAnimal',
-    //props: true,
+    props: true,
     component: () => import('../views/UpdateAnimal.vue'),
   },
 

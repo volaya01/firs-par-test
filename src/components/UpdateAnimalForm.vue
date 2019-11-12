@@ -1,5 +1,5 @@
 <template>
-    <div id="form-create">
+    <div id="update-animal-form">
         <div class="b-row" align="center">
             <b-col cols="6">
                 <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="form">
@@ -78,22 +78,21 @@
 <script>
     export default {
 
-       // props: ['idAnimal'],
-
-        name: "form-update",
+       props: ['animal'],
+        name: "updateAnimalForm",
         data() {
             return {
                 form: {
-                    animal_id: '',
-                    animal_name: '',
-                    animal_kind: '',
-                    animal_age: '',
-                    animal_status_id: '',
-                    animal_created_on: '',
-                    animal_picture_address: '',
+                    animal_id: this.animal.animal_id,
+                    animal_name: this.animal.animal_name,
+                    animal_kind: this.animal.animal_kind,
+                    animal_age: this.animal.animal_age,
+                    animal_status_id: this.animal.animal_status_id,
+                    animal_created_on: this.animal.animal_created_on,
+                    animal_picture_address: this.animal.animal_picture_address,
 
                 },
-                show: true
+                show: true,
             }
         },
 

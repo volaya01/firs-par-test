@@ -1,4 +1,5 @@
 import BranchAPI from '../api/branch.js';
+import AnimalsAPI from "../api/animals";
 
 export const branches = {
     state: {
@@ -23,6 +24,42 @@ export const branches = {
                     });
             });
         }
+    },
+    deleteBranches({ commit }, data){
+
+        commit ( 'setBranchesLooadStatus', 1 );
+
+        return new Promise((resolve, reject) => {
+            AnimalsAPI.deleteBranchAPI(data)
+                .then(function (response) {
+                    commit('setBranches', response.data);
+                    commit('setBranchesLoadStatus', 3);
+                    reject(error);
+                })
+                .catch(function (error) {
+                    commit('setBranches', []);
+                    commit('setBranchesLoadStatus', 3);
+                    reject(error);
+                });
+        })
+    },
+    updateBranches({ commit }, data){
+
+        commit ( 'setBranchesLooadStatus', 1 );
+
+        return new Promise((resolve, reject) => {
+            AnimalsAPI.updateBranchAPI(data)
+                .then(function (response) {
+                    commit('setBranches', response.data);
+                    commit('setBranchesLoadStatus', 3);
+                    reject(error);
+                })
+                .catch(function (error) {
+                    commit('setBranches', []);
+                    commit('setBranchesLoadStatus', 3);
+                    reject(error);
+                });
+        })
     },
     mutations: {
         setBranchesLoadStatus( state, status ){

@@ -97,5 +97,9 @@ export const animals = {
         getAnimals( state ){
             return state.animals;
         },
+
+        getAnimalById : (state) => (animalId) => {
+            return state.animals.find(animal => animal.animal_id === animalId);
+        },
     }
 }
